@@ -12,8 +12,13 @@ function submit_form() {
     CurrentChange += parseInt(form["Rotations"].value) * parseInt(
         document.getElementById("WheelSize").value
     );
-    console.log("Current Change: " + CurrentChange);
-	slots_changed.push(CurrentChange);
+    console.log(CurrentChange);
+    if (Number.isNaN(CurrentChange)) { 
+        console.log("ERROR: CurrentChange is NaN");
+    } else {
+        console.log("Current Change: " + CurrentChange);
+        slots_changed.push(CurrentChange);
+    }
 }
 
 function input_data_button_pressed() {
@@ -27,8 +32,8 @@ function generate_prediction() {
     var Predictor = document.getElementById("Predictor");
     var Prediction = document.getElementById("Prediction");
     var prediction = slots_changed_average();
-    prediction %= parseInt(document.getElementById("WheelSize").value);
     prediction += parseInt(Predictor["CurrentSlot"].value);
+    prediction %= parseInt(document.getElementById("WheelSize").value);
     Prediction.innerHTML = "Predicted Change: " + prediction;
 }
 
