@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+}

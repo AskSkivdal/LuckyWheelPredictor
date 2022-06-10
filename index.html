@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Wheel Predictor</title>
+    <meta name="description" content="A predictor for lucky wheels operated by humans." >
+    <meta name="theme-color" content="#00ff00" />
+    <link rel="manifest" href="./manifest.json">
+    <script src="./main.js"></script>
+    <script>
+        // if browser support service worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register("./sw.js");
+        }
+    </script>
+
+    <link rel="stylesheet" href="./master.css">
+
+
+</head>
+<body>
+    <div class="title"><p>Lucky Wheel Predictor</p></div>
+    <label for="WheelSize">Wheel size: </label>
+    <input type="number" id="WheelSize" value=50></input>
+    <p><button onclick="input_data_button_pressed()">Swap ui</button></p>
+    <form id="DataInput" onSubmit="submit_form(); return false;">
+        <label for="StartingSlot">Starting Slot</label><br>
+        <Input type="number" id="StartingSlot" value=0></Input><br>
+
+        <label for="Rotations">Rotations</label><br>
+        <Input type="number" id="Rotations" value=0></Input><br>
+
+        <label for="EndingSlot">Ending Slot</label><br>
+        <Input type="number" id="EndingSlot" value=0></Input><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <form id="Predictor" onSubmit="generate_prediction(); return false;" hidden>
+        <label id="Prediction">Prediction is: NULL</label><br>
+        <label for="CurrentSlot"></label>
+        <Input type="number" id="CurrentSlot" value=0></Input><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
