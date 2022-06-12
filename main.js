@@ -37,7 +37,7 @@ function generate_prediction() {
     var prediction = slots_changed_average();
     prediction += parseInt(Predictor["CurrentSlot"].value);
     prediction %= parseInt(document.getElementById("WheelSize").value);
-    Prediction.innerHTML = prediction;
+    Prediction.innerHTML = prediction.toFixed(2);
 }
 
 
