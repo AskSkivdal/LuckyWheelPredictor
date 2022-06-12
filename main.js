@@ -15,9 +15,12 @@ function submit_form() {
     console.log(CurrentChange);
     if (Number.isNaN(CurrentChange)) { 
         console.log("ERROR: CurrentChange is NaN");
+        document.getElementById("InputAccepted").innerHTML = "This input isnt valid";
     } else {
         console.log("Current Change: " + CurrentChange);
         slots_changed.push(CurrentChange);
+        document.getElementById("InputAccepted").innerHTML = "Current array length: " + slots_changed.length;
+        document.getElementById("DataInput").reset();
     }
 }
 
@@ -34,7 +37,7 @@ function generate_prediction() {
     var prediction = slots_changed_average();
     prediction += parseInt(Predictor["CurrentSlot"].value);
     prediction %= parseInt(document.getElementById("WheelSize").value);
-    Prediction.innerHTML = "Predicted Change: " + prediction;
+    Prediction.innerHTML = prediction;
 }
 
 

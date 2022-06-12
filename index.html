@@ -35,10 +35,12 @@
         <label for="EndingSlot">Ending Slot</label><br>
         <Input type="number" id="EndingSlot" value=0></Input><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"><br>
+        <label id="InputAccepted"></label>
+
     </form>
     <form id="Predictor" onSubmit="generate_prediction(); return false;" hidden>
-        <label id="Prediction">Prediction is: NULL</label><br>
+        <label>Prediction is: <span id="Prediction">NULL</span></label><br>
         <label for="CurrentSlot"></label>
         <Input type="number" id="CurrentSlot" value=0></Input><br>
         <input type="submit" value="Submit">
