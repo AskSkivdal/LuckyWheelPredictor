@@ -1,3 +1,5 @@
+const version = '1.0.0';
+
 // On install - the application shell cached
 self.addEventListener('install', function(event) {
     event.waitUntil(
